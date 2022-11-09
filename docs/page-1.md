@@ -8,3 +8,9 @@ def foo(a: string, b: int):
 ```
 
 $$f(x) = x^2+ \frac{1}{\alpha}$$
+
+
+<figure markdown>
+  ![Image title](img/ditto.png){ width="300" }
+  <figcaption>Ditto</figcaption>
+</figure>
