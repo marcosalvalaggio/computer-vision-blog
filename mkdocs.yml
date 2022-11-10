@@ -1,4 +1,4 @@
-site_name: A tiny jurney into the Computer Vision 
+site_name: Journey into Computer Vision
 theme:
   name: material
 
@@ -20,13 +20,13 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/brightness-7 
         name: Switch to dark mode
       primary: indigo
       accent: deep purple 
     - scheme: slate 
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-4
         name: Switch to light mode    
       primary: indigo
       accent: deep purple

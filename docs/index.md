@@ -1,17 +1,13 @@
-# Welcome to MkDocs
+# A brief introduction
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+The purpose of the site/blog/doco (builded with [mkdocs-material](https://squidfunk.github.io/mkdocs-material/)) is to be a container of computer vision theories I studied. 
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Every section/post is produced using a markdown file obtained by converting a jupyter notebook. The main frameworks used for the studies are:
 
-## Project layout
+* OpenCV
+* NumPy
+* Matplotlib
+  
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+
