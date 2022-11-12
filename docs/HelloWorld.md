@@ -1,4 +1,4 @@
-# 1) OpenCV HelloWorld 
+# OpenCV HelloWorld 
 OpenCV (Open Source Computer Vision Library: [opencv.org](http://opencv.org)) is an open-source library that includes several hundreds of computer vision algorithms.
 
 

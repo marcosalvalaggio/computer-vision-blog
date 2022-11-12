@@ -31,6 +31,11 @@ theme:
       primary: indigo
       accent: deep purple
 
+nav: 
+  - index.md
+  - HelloWorld.md
+  - GeomTrasf.md
+
 
 extra:
   social:
