@@ -34,7 +34,7 @@ theme:
 nav: 
   - index.md
   - HelloWorld.md
-  - GeomTrasf.md
+  - GeometricTransformations.md
 
 
 extra:
