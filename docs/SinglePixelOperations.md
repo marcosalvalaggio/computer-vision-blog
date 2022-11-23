@@ -10,8 +10,6 @@ The following are commonly used intensity transformations:
 * Negative
 * Logarithm
 * Gamma
-* Contrast stretching
-* Intensity slicing
 * Histogram equalization
 
 <figure markdown>
@@ -299,10 +297,141 @@ plt.xlim([0,256])
 </figure>
     
     
-
-
 In the histogram plot, blue line shows histogram of full image while orange line shows histogram of masked region.
 
+
+### What is Histogram Equalization?
+
+* It is a method that improves the contrast in an image, in order to stretch out the intensity range
+* Used for: 
+    * Evaluating image statistics
+    * Compression
+    * Segmentation
+    * Image enhancement
+    
+Histogram of the grayscale image can be treated as a probabilistic density function (PDF):
+
+$$p(r_k) = \frac{n_k}{MN}$$
+
+#### PDF/CDF recall
+
+* Cumulative Distribution Function (CDF)
+    
+    $$ F_x(x) = P(X \leq x)$$
+
+* Probability Density Function (PDF)
+
+    $$f_x(x) = \frac{d}{d_x}F_x(x)$$
+    
+    $$F_x(x) = \int_{-\infty}^{x} f_x(t) dt $$
+    
+#### Equalization function
+
+Can we modify the histogram? We can equalize the histogram (flattens the histogram) ***based on an equalization function***.
+
+* Introduce $T(r)$ to equalize the histogram
+* $T(r)$ shall be monotonically non-decreasing (or monotonically increasing if inverse function is needed)
+
+$$ 0 \leq T(r) \leq L-1 $$ 
+
+$$ 0 \leq r \leq L-1$$ 
+
+where $T(r)$ continuous and differentiable. The CDF of the $p(r)$ is the $T(r)$ transformation used to equalize the histogram:
+
+$$ s = T(r) = (L-1)\int_{-\infty}^r p_r(w)dw,\;\;L=256 $$
+
+$$ s_k = T(r_k) = (L-1)\sum_{j=0}^k p_r(r_j)$$
+
+
+<figure markdown>
+<center>
+  ![Image title](img/spo/Spo_13.png){ width="700" }
+  <figcaption>Equalization: a 3-bit example</figcaption>
+</center>
+</figure>
+
+The output is not perfectly flat caused by the discrete nature of data. Finally, we use a simple remapping procedure to obtain the intensity values of the equalized image:
+
+$$equilized(x_i,y_i) = T((x_i,y_i))$$
+
+Following the previous example in a hypothetical 3-bit image:
+
+* all point $(x_i,y_i)$ with value 0 is mapped to value 1
+* all point $(x_i,y_i)$ with value 1 is mapped to value 3
+* all point $(x_i,y_i)$ with value 2 is mapped to value 5
+* $\dots$
+
+
+```python
+# original image 
+img = cv2.imread('img/landscape.jpg',0)
+hist = cv2.calcHist([img],[0],None,[256],[0,256])
+plt.figure(figsize=(10,8))
+plt.subplot(221)
+plt.imshow(img, cmap = 'gray')
+plt.title('Original image')
+plt.subplot(222)
+plt.hist(img.ravel(),256,[0,256])
+plt.title('Image histogram')
+# equalize 
+img_equalized = cv2.equalizeHist(img)
+plt.subplot(223)
+plt.imshow(img_equalized, cmap = 'gray')
+plt.title('Equalized image')
+plt.subplot(224)
+plt.hist(img_equalized.ravel(),256,[0,256])
+plt.title('Image histogram')
+plt.show()
+```
+    
+<figure markdown>
+<center>
+  ![Image title](img/spo/Spo_14.png){ width="700" }
+  <figcaption></figcaption>
+</center>
+</figure>
+    
+
+
+### Histogram equalization on RGB image
+
+For a greyscale image, each pixel is represented by the intensity value (brightness); that is why we can feed the pixel values directly to the HE (histogram equalization) function. However, that is not how it works for an RGB-formatted color image. Each channel of the R, G, and B represents the intensity of the related color, not the intensity/brightness of the image as a whole. And so, running HE on these color channels is NOT the proper way.
+
+We should first separate the brightness of the image from the color and then run HE on the brightness. Now, there are already standardized colorspaces that encode brightness and color separately, like YCbCr (Y is the luma component of the color. Luma component is the brightness of the color. Cb and Cr is the blue component and red component related to the chroma component. That means “Cb is the blue component relative to the green component. Cr is the red component relative to the green component), HSV, $\dots$so, we can use them for separating and then re-merging the brightness. The proper way:
+
+* Convert the colorspace from RGB to YCbCr;
+* Run HE on the Y channel (this channel represents brightness);
+* Convert back the colorspace to RGB.
+
+
+```python
+# original image 
+img = cv2.imread('img/landscape.jpg',1)
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.figure(figsize=(10,8))
+plt.subplot(121)
+plt.imshow(img_rgb)
+plt.title('Original image')
+plt.axis('off')
+# convert from RGB color-space to YCrCb
+img_ycrcb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+# equalize the histogram of the Y channel
+img_ycrcb[:, :, 0] = cv2.equalizeHist(img_ycrcb[:, :, 0])
+# convert back to RGB color-space from YCrCb
+img_equalized = cv2.cvtColor(img_ycrcb, cv2.COLOR_YCrCb2RGB)
+plt.subplot(122)
+plt.imshow(img_equalized)
+plt.title('Equalized image')
+plt.axis('off')
+```
+    (-0.5, 799.5, 599.5, -0.5)
+
+<figure markdown>
+<center>
+  ![Image title](img/spo/Spo_15.png){ width="700" }
+  <figcaption></figcaption>
+</center>
+</figure>
 
 ## References
 
