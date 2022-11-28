@@ -395,7 +395,7 @@ plt.show()
 
 ### Histogram equalization on RGB image
 
-For a greyscale image, each pixel is represented by the intensity value (brightness); that is why we can feed the pixel values directly to the HE (histogram equalization) function. However, that is not how it works for an RGB-formatted color image. Each channel of the R, G, and B represents the intensity of the related color, not the intensity/brightness of the image as a whole. And so, running HE on these color channels is NOT the proper way.
+For a greyscale image, each pixel is represented by the intensity value (brightness); that is why we can feed the pixel values directly to the HE (histogram equalization) function. However, that is not how it works for an RGB-formatted color image. Each channel of the R, G, and B represents the intensity of the related color, not the intensity/brightness of the image as a whole. And so, running HE on these color channels is not the proper way.
 
 We should first separate the brightness of the image from the color and then run HE on the brightness. Now, there are already standardized colorspaces that encode brightness and color separately, like YCbCr (Y is the luma component of the color. Luma component is the brightness of the color. Cb and Cr is the blue component and red component related to the chroma component. That means “Cb is the blue component relative to the green component. Cr is the red component relative to the green component), HSV, $\dots$so, we can use them for separating and then re-merging the brightness. The proper way:
 
