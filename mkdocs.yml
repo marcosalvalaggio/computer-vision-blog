@@ -36,6 +36,7 @@ nav:
   - HelloWorld.md
   - GeometricTransformations.md
   - SinglePixelOperations.md
+  - LocalOperations.md
 
 
 extra:
