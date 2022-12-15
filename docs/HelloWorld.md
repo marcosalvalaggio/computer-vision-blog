@@ -1,4 +1,7 @@
-# OpenCV HelloWorld 
+# OpenCV HelloWorld
+
+## OpenCV HelloWorld 
+
 OpenCV (Open Source Computer Vision Library: [opencv.org](http://opencv.org)) is an open-source library that includes several hundreds of computer vision algorithms.
 
 
@@ -39,13 +42,8 @@ We plot the image directly into the notebook with matplotlib for simplicity with
 img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 plt.imshow(img_rgb)
 plt.axis('off')
+plt.show()
 ```
-
-
-
-
-    (-0.5, 509.5, 429.5, -0.5)
-
 
 <figure markdown>
   ![Image title](img/hello_1.png){ width="300" }
@@ -71,16 +69,8 @@ img_grayscale = cv2.imread('ditto.jpeg',0)
 # plot the image 
 plt.imshow(img_grayscale, cmap='gray')
 plt.axis('off')
+plt.show()
 ```
-
-
-
-
-    (-0.5, 509.5, 429.5, -0.5)
-
-
-
-
     
 <figure markdown>
   ![Image title](img/hello_2.png){ width="300" }
@@ -95,9 +85,6 @@ plt.axis('off')
 ```python
 cv2.imwrite('ditto_gray.jpeg', img_grayscale)
 ```
-
-
-
 
     True
 
@@ -173,14 +160,10 @@ plt.subplot(2,2,4)
 plt.imshow(img_test)
 plt.title('generated image')
 plt.axis('off')
+plt.show()
 ```
 
     image shape: (2, 2, 3)
-
-    (-0.5, 1.5, 1.5, -0.5)
-
-
-
 
 <figure markdown>
   ![Image title](img/hello_3.png){ width="400" }
@@ -201,17 +184,9 @@ img_black = np.zeros((height,width,3), np.uint8)
 img_black = cv2.cvtColor(img_black, cv2.COLOR_BGR2RGB)
 plt.imshow(img_black)
 plt.axis('off')
+plt.show()
 ```
 
-
-
-
-    (-0.5, 511.5, 511.5, -0.5)
-
-
-
-
-    
 <figure markdown>
   ![Image title](img/hello_4.png){ width="300" }
   <figcaption></figcaption>
@@ -252,15 +227,8 @@ plt.axis('off')
 plt.subplot(2,2,4)
 plt.imshow(img_random)
 plt.axis('off')
+plt.show()
 ```
-
-
-
-
-    (-0.5, 511.5, 511.5, -0.5)
-
-
-
 
 <figure markdown>
   ![Image title](img/hello_5.png){ width="400" }

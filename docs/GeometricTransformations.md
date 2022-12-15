@@ -1,5 +1,7 @@
 # Geometric transformations 
 
+## Geometric transformations 
+
 A geometric transform (image rotations or general warps) is a modification of the spatial relationship among pixels. 
 
 
@@ -124,11 +126,10 @@ print(f'Dimensions of resized image: {res.shape}')
 res_rgb = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
 plt.imshow(res_rgb)
 plt.axis('off')
+plt.show()
 ```
 
     Dimensions of resized image: (860, 1020, 3)
-
-    (-0.5, 1019.5, 859.5, -0.5)
 
 
 <figure markdown>
@@ -189,11 +190,11 @@ print(f'Dimensions of traslated image: {dst.shape}')
 dst_rgb = cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)
 plt.imshow(dst_rgb)
 plt.axis('off')
+plt.show()
 ```
 
     Dimensions of traslated image: (430, 510, 3)
 
-    (-0.5, 509.5, 429.5, -0.5)
 
 <figure markdown>
 <center>
@@ -265,11 +266,11 @@ print(f'Dimensions of rotated image: {rtd_rgb.shape}')
 rtd_rgb = cv2.cvtColor(rtd, cv2.COLOR_BGR2RGB)
 plt.imshow(rtd_rgb)
 plt.axis('off')
+plt.show()
 ```
 
     Dimensions of rotated image: (430, 510, 3)
 
-    (-0.5, 509.5, 429.5, -0.5)
 
 <figure markdown>
 <center>
@@ -317,9 +318,8 @@ plt.subplot(121),plt.imshow(img_rgb),plt.title('Input')
 plt.axis('off')
 plt.subplot(122),plt.imshow(dst_rgb),plt.title('Output')
 plt.axis('off')
+plt.show()
 ```
-
-    (-0.5, 509.5, 429.5, -0.5)
 
 
 <figure markdown>
@@ -356,9 +356,8 @@ plt.subplot(132),plt.imshow(dst_rgb),plt.title('Output')
 plt.axis('off')
 plt.subplot(133),plt.imshow(dst_rot_rgb),plt.title('Output')
 plt.axis('off')
+plt.show()
 ```
-
-    (-0.5, 509.5, 429.5, -0.5)
 
 <figure markdown>
 <center>
@@ -387,9 +386,9 @@ plt.subplot(121),plt.imshow(img_rgb),plt.title('Input')
 plt.axis('off')
 plt.subplot(122),plt.imshow(dst_rgb),plt.title('Output')
 plt.axis('off')
+plt.show()
 ```
 
-    (-0.5, 299.5, 299.5, -0.5)
 
 <figure markdown>
 <center>

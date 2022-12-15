@@ -1,5 +1,6 @@
-
 # Local Operations 
+
+## Local Operations 
 
 Local/neighborhood operators can be used to filter images in order to add soft blur, sharpen details, accentuate edges, or remove noise. Local operations are defined based on a filter/kernel. The kernel defines:
 
@@ -20,7 +21,7 @@ Local operations are performed in the spatial domain of the image (the space con
 * AKA spatial filtering
 * The kernel is AKA spatial filter
 
-### Type of filters
+## Type of filters
 
 Depending on the processing applied to the image the filter can be:
 
@@ -36,11 +37,11 @@ Depending on the processing applied to the image the filter can be:
 </figure>
 
 
-# Linear Filters (convolution/correlation)
+## Linear Filters (convolution/correlation)
 
 How is the spatial filter applied to the image? output pixel’s value is determined as a weighted sum of input pixel values
 
-## Correlation operation
+### Correlation operation
 
 * Filter superimposed on each pixel location
 * Evaluation of a weighted average
@@ -88,7 +89,7 @@ Both correlation and convolution are linear shift-invariant (LSI) operators, whi
 * On a grayscale image the filter weights can change the image brightness
 * Brightness is unchanged if: $\sum_i w_i = 1$
 
-## Correlation vs Convolution effects 
+### Correlation vs Convolution effects 
 
 
 ```python
@@ -710,7 +711,7 @@ plt.show()
 <center>
 </figure>
 
-# Non-lineal filters 
+## Non-lineal filters 
 
 The idea is to replace the target pixel value with its neighbor pixels value from some ordering mechanism or function. There are many types of non-linear filters, but the main ones are the following:
 
@@ -718,7 +719,7 @@ The idea is to replace the target pixel value with its neighbor pixels value fro
 * **Maximum Filter**: similar to minimum filter but pick the highest one.
 * **Median Filter**: selects the neighbor pixels then sort it from the lowest to highest then pick the median one to replace at the targeted pixel.
 
-## Median Filter
+### Median Filter
 
 OpenCV has the function for the median filter which is the ***medianBlur*** function. The function smoothes an image using the median filter with the $ksize\times ksize$ aperture. Each channel of a multi-channel image is processed independently. In-place operation is supported.
 

@@ -1,5 +1,7 @@
 # Single pixel operations
 
+## Single pixel operations
+
 Considering a grayscale image, single pixel operations/transforms (AKA intensity transforms) are functions that change the gray levels (values of pixels from 0 to 255) of the image. Elements involved:
 
 * Function $I(x,y)$ representing the original image $(r=I(x_i,y_i)$ is the $i$-th pixel)
@@ -34,11 +36,11 @@ img = cv2.imread('ditto_gray.jpeg',0)
 print(f'Image dimenions: {img.shape}')
 plt.imshow(img, cmap = 'gray')
 plt.axis('off')
+plt.show()
 ```
 
     Image dimenions: (432, 512)
 
-    (-0.5, 511.5, 431.5, -0.5)
 
 <figure markdown>
 <center>
@@ -63,9 +65,8 @@ L = 256
 neg_img = (L-1)-img
 plt.imshow(neg_img, cmap = 'gray')
 plt.axis('off')
+plt.show()
 ```
-
-    (-0.5, 511.5, 431.5, -0.5)
 
 <figure markdown>
 <center>
@@ -101,6 +102,7 @@ plt.axis('off')
 # show 
 plt.show()
 ```
+
 <figure markdown>
 <center>
   ![Image title](img/spo/Spo_4.png){ width="500" }
@@ -126,9 +128,8 @@ plt.subplot(122)
 plt.imshow(img_log, cmap = 'gray')
 plt.title('Log transformed')
 plt.axis('off')
+plt.show()
 ```
-
-    (-0.5, 829.5, 835.5, -0.5)
 
 <figure markdown>
 <center>
@@ -181,9 +182,8 @@ plt.subplot(122)
 plt.imshow(img_gamma, cmap = 'gray')
 plt.title('Gamma transformed')
 plt.axis('off')
+plt.show()
 ```
-
-    (-0.5, 511.5, 431.5, -0.5)
 
 <figure markdown>
 <center>
@@ -233,6 +233,7 @@ plt.plot(hist, color='black')
 plt.title('Image Histogram')
 plt.show()
 ```
+
 <figure markdown>
 <center>
   ![Image title](img/spo/Spo_10.png){ width="600" }
@@ -258,6 +259,7 @@ plt.hist(img.ravel(),256,[0,256])
 plt.title('Image Histogram')
 plt.show()
 ```
+
 <figure markdown>
 <center>
   ![Image title](img/spo/Spo_11.png){ width="600" }
@@ -286,8 +288,9 @@ plt.subplot(222), plt.imshow(mask,'gray')
 plt.subplot(223), plt.imshow(masked_img, 'gray')
 plt.subplot(224), plt.plot(hist_full), plt.plot(hist_mask)
 plt.xlim([0,256])
+plt.show()
 ```
-    (0.0, 256.0)
+
 
 <figure markdown>
 <center>
@@ -423,8 +426,8 @@ plt.subplot(122)
 plt.imshow(img_equalized)
 plt.title('Equalized image')
 plt.axis('off')
+plt.show()
 ```
-    (-0.5, 799.5, 599.5, -0.5)
 
 <figure markdown>
 <center>
