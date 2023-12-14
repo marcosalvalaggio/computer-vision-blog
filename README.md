@@ -6,6 +6,5 @@ I'm going to refactor the entire project, including:
 
 * Jupyter Notebook files.
 * Posting on medium.
-* Remaking of the Jupyter Notebook in c++.
 
 It's will take some weeks to restar and find a regularity on publishing content.
